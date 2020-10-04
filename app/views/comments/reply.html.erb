@@ -1,0 +1,9 @@
+<main>
+  <h1>返信画面</h1>
+  <div class="post-total">
+      <%= form_tag("/comments/#{@comment.id}/update") do %>
+        <textarea name="content"></textarea>
+        <input type="submit" value="投稿"></input>
+      <% end %>
+    </div>
+</main>

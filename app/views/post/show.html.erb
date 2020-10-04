@@ -1,0 +1,80 @@
+<main>
+  <h1>投稿詳細</h1>
+  <div class="post-total">
+    <div class="post-leftbox">
+      <div class="post-image">
+        <img src="<%= "/user_images/#{@post.user.image_name}" %>">
+      </div>
+    </div>
+    <div class="post-rightbox">
+      <div class="post-name">
+        <%= link_to("#{@user.name}","/user/#{@user.id}/show") %>
+      </div>
+      <div>
+        <%= @post.content %>
+        <div class="post-edit">
+          <% if @post.user.id == @current_user.id %>
+            <%= link_to("編集","/post/#{@post.id}/edit") %>
+            <%= link_to("削除","/post/#{@post.id}/destroy",{method: :post}) %>
+          <% end %>
+      </div>
+    </div>
+    <div>
+      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id)%>
+          <%= link_to("❤︎","/like/#{@post.id}/destroy",{method: :post}) %>
+        <% else %>
+          <%= link_to("♡","/like/#{@post.id}/create",{method: :post}) %>
+        <% end %>
+    </div>
+    <div>
+      <%= Like.where(post_id:@post.id).count %>
+    </div>
+    <div>
+      <%= link_to("コメントする","/comments/#{@post.id}/new")%>
+    </div>
+    <% @comment.each do |comment| %>
+      <div class="post-total">
+        <div class="post-leftbox">
+        <div class="post-image">
+          <img src="<%= "/user_images/#{comment.user.image_name}" %>">
+        </div> 
+        </div>
+        <div class="post-rightbox">
+          <div class="post-name">
+            <%= link_to(comment.user.name,"") %>
+          </div>
+          <div class="">
+            <%= link_to(comment.content,"") %>
+          </div>
+          <div class="">
+            <%= link_to("返信する","/comments/#{comment.id}/reply")%>
+          </div>
+          </div>     
+      </div>
+    <% end %>
+
+    <% @comment.each do |comment| %>
+      <% comment.reply_comments.each do |reply| %>
+        <div class="post-total">
+          <div class="post-leftbox">
+            <div class="post-image">
+              <img src="<%= "/user_images/#{comment.user.image_name}" %>">
+            </div> 
+          </div>
+          <div class="post-rightbox">
+            <div class="post-name">
+              <%= link_to(comment.user.name,"") %>
+            </div>
+            <div class="">
+              <%= link_to(reply.content,"") %>
+            </div>
+            <div class="">
+              <%= link_to("返信する","/comments/#{comment.id}/reply")%>
+            </div>
+          </div>     
+        </div>
+      <% end %>
+    <% end %>
+    
+  </div>
+</main>

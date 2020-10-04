@@ -1,0 +1,82 @@
+// Place all the styles related to the post controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.post-total{
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  // border:solid 1px #c1ced7;
+  box-shadow: 0 2px 6px #aaa;
+  display: flex;
+}
+
+.post-leftbox{
+  width: 10%;
+}
+
+.post-rightbox{
+  width: 100%;
+}
+
+.post-total a{
+  color: #000;
+}
+
+.post-total textarea{
+  width: 100%;
+  height: 150px;
+  border:1px solid #aaa;
+  border-radius: 3px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.post-total input[type="submit"]{
+  width: 80px;
+  float: right;
+  background-color: #aaa;
+  font-size: 12px;
+  border-radius: 5px;
+  // border-bottom: solid 3px #aaa;
+  box-shadow: 3px 3px 3px gray;
+  transition: 0.3s;
+}
+
+.post-total input[type="submit"]:active{
+  transform: translateY(2px);
+  border-bottom: none;
+}
+
+.post-image img{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.post-name{
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.post-name a:hover{
+  border-bottom: solid 1px #000;
+}
+
+.post-edit{
+  padding-top: 20px;
+  text-align: right;
+}
+
+.post-edit a{
+  color: blue;
+}
+
+.post-edit a:hover{
+  color: red;
+}
+
+
+

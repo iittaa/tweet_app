@@ -1,0 +1,51 @@
+<main>
+  <h1>ユーザー詳細</h1>
+  <div>
+  <div class="user-main">
+    <div class="user-icon">
+      <img src="<%= "/user_images/#{@user.image_name}" %>">
+    </div>
+    <div class="user-name">
+      <%= @user.name %>
+    </div>
+    <div class="user-edit">
+      <% if @current_user.id == @user.id %>
+        <%= link_to("プロフィール編集","/user/#{@user.id}/edit") %>
+      <% else %>
+        <% if Relationship.find_by(user_id: @current_user.id, follow_id: @user.id) %>
+          <%= link_to("フォロー中","/relationship/#{@user.id}/unfollow",{method: :post}) %>
+        <% else %>
+          <%= link_to("フォローする","/relationship/#{@user.id}/follow",{method: :post}) %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="follow-list">
+      <%= link_to("フォロー中","/user/#{@user.id}/following") %>
+      <%= link_to("フォロワー","/user/#{@user.id}/followers") %>
+    </div>
+  </div>
+    <ul class="user-tab">
+      <li>
+        <%= link_to("つぶやき","/user/#{@user.id}/show") %>
+      </li>
+      <li class="user-active">
+        <%= link_to("いいね","/user/#{@user.id}/like") %>
+      </li>
+    </ul>
+    <% @like.each do |like| %>
+      <% post = Post.find_by(id: like.post_id) %>
+    <div class="post-total">
+      <div class="post-leftbox">
+       <div class="post-image">
+        <img src="<%= "/user_images/#{post.user.image_name}" %>">
+       </div> 
+      </div>
+      <div class="post-rightbox">
+        <div class="post-name"><%= link_to(post.user.name,"") %>
+        </div>
+        <%= link_to(post.content,"/post/#{post.id}/show") %>
+      </div>
+    </div>
+    <% end %>
+
+</main>

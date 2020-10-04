@@ -1,0 +1,14 @@
+<main>
+  <h1>フォローユーザー</h1>
+  <% @relationship.each do |relationship| %>
+    <% users = User.find_by(id: relationship.follow_id) %>
+  <div class="user-total">
+    <div class="user-leftbox">
+      <img src="<%= "/user_images/#{users.image_name}" %>">
+    </div>
+    <div class="user-rightbox">
+      <p><%= link_to(users.name,"/user/#{users.id}/show") %></p>
+    </div>
+  </div>
+  <% end %>
+</main>

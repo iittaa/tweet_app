@@ -1,0 +1,12 @@
+<main>
+  <h1>ログイン画面</h1>
+  <div class="user-form">
+    <%= form_tag("/user/login_form",{multipart: :true}) do %>
+      <p>メールアドレス</p>
+      <input type="email" name="email" value="<%= @email %>"></input>
+      <p>パスワード</p>
+      <input type="password" name="password" value="<%= @password %>"></input>
+      <input type="submit" value="ログイン"></input>
+    <% end %>
+  </div>
+</main>

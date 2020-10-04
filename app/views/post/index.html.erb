@@ -1,0 +1,20 @@
+<main>
+<h1>ホーム</h1>
+<% @relationship.each do |relationship| %>
+  <% @posts = Post.where(user_id: relationship.follow_id) %>
+  <% @posts.order(created_at: "desc").each do |post| %>
+    <div class="post-total">
+      <div class="post-leftbox">
+        <div class="post-image">
+        <img src="<%= "/user_images/#{post.user.image_name}" %>">
+        </div>
+      </div>
+      <div class="post-rightbox">
+        <div class="post-name"><%= link_to(post.user.name,"/user/#{post.user.id}/show") %>
+        </div>
+        <%= link_to(post.content,"/post/#{post.id}/show") %>
+      </div>
+    </div> 
+  <% end %>
+<% end %>
+</main>

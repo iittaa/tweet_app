@@ -1,0 +1,79 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+main{
+  padding: 60px 0px;
+  width: 60%;
+  margin: 0px auto;
+}
+
+h1{
+  color: rgba(29,161,242,1.00);
+  margin-bottom:10px ;
+}
+
+header{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-bottom:solid 1px #aaa;
+  // position: fixed;
+  height: 60px;
+  position: fixed;
+  background-color: #fff;
+}
+
+header a{
+  color: rgba(29,161,242,1.00);
+  display: block;
+}
+
+.header-left{
+  width: 40%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.header-right{
+  width: 60%;
+  display: flex;
+  justify-content: flex-end;
+  line-height: 60px;
+  }
+
+.header-right li{
+  // padding: 0px 25px;
+  width: 15%;
+  line-height: 60px;
+  text-align: center;
+}
+
+.header-right a{
+  line-height: 60px !important;
+}
+
+.header-right a:hover{
+  background-color: rgba(29,161,242,0.1);
+  cursor: pointer;
+}
+
+
+.menu{
+  background-color: #000;
+  height: 60px;
+}
+
+.flash{
+  background-color: coral;
+  text-align: center;
+  height: 30px;
+  padding-top: 60px;
+}

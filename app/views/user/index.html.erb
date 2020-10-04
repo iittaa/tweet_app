@@ -1,0 +1,13 @@
+<main>
+  <h1>ユーザー一覧</h1>
+  <% @user.each do |user| %>
+  <div class="user-total">
+    <div class="user-leftbox">
+      <img src="<%= "/user_images/#{user.image_name}"%>">
+    </div>
+    <div class="user-rightbox">
+      <p><%= link_to(user.name,"/user/#{user.id}/show") %></p>
+    </div>
+  </div>
+  <% end %>
+</main>
